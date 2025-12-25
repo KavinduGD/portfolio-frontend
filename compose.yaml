@@ -1,0 +1,14 @@
+name: portfolio
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5173:5173"
+    develop:
+      watch:
+        - action: sync
+          path: ./src
+          target: /app/src
