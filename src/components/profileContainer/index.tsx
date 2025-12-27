@@ -7,7 +7,7 @@ import { IoCall } from "react-icons/io5";
 
 function ProfileContainer() {
   return (
-    <div className="w-[420px] h-[750px] bg-[#faf9f9] ml-[10px] overflow-hidden rounded-[4px] flex flex-col items-center ">
+    <div className="2xl:w-[420px] xl:w-[350px] lg:w-[280px] w-full h-[700px]  bg-[#faf9f9]  overflow-hidden rounded-[4px] flex flex-col items-center ">
       {/* Image with triangle cut */}
       <div
         className="w-full h-[450px] bg-cover bg-center bg-no-repeat"
@@ -19,7 +19,9 @@ function ProfileContainer() {
 
       {/* Content below image */}
       <div className="mt-[30px] text-center">
-        <h2 className="text-[26px] font-bold">Kavindu Gihan Dharmasiri</h2>
+        <h2 className="xl:text-[26px] lg:text-[18px] text-[30px] font-bold">
+          Kavindu Gihan Dharmasiri
+        </h2>
         <p className="text-blue-600 text-[18px]">Software Engineer</p>
       </div>
       <div className="flex text-[24px] mt-[20px] text-[#323232] gap-[10px]">
@@ -49,20 +51,20 @@ function ProfileContainer() {
         </a>
       </div>
 
-      <div className="mt-auto flex   w-full border-t-[1px] border-gray-300  ">
+      <div className="mt-auto flex   w-full border-t-[1px] border-gray-300  xl:text-[16px] lg:text-[14px]">
         <a
           href="/CV.pdf"
           download
-          className="flex items-center gap-[10px] border-r-[1px] border-gray-300 w-full py-[20px] justify-center cursor-pointer hover:bg-gray-100 transition"
+          className="flex items-center gap-[10px] border-r-[1px] border-gray-300 w-full py-[20px] justify-center  hover:bg-gray-100 transition text-[#323232]"
         >
           <p>DOWNLOAD CV</p>
           <FaDownload />
         </a>
         <a
           href="tel:+94771234567"
-          className="flex  items-center gap-[10px] w-full py-[20px] justify-center cursor-pointer hover:bg-gray-100 transition"
+          className="flex  items-center gap-[10px] w-full py-[20px] justify-center  hover:bg-gray-100 transition text-[#323232]"
         >
-          <p>CONTACT ME</p>
+          <p className="">CONTACT ME</p>
           <IoCall />
         </a>
       </div>

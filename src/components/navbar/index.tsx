@@ -42,12 +42,12 @@ function Navbar() {
     },
   ];
   return (
-    <div className=" flex  flex-col gap-[10px]">
-      <div className="flex flex-col items-center bg-white gap-[20px] py-[20px] rounded-[4px]">
+    <div className=" flex  lg:flex-col  flex:row gap-[10px] lg:w-auto w-full">
+      <div className="hidden  lg:flex lg:flex-col flex-row items-center bg-white gap-[20px] py-[20px] rounded-[4px]">
         <RxHamburgerMenu className="text-[20px]" />
         <FaRegMoon className="text-[20px]" />
       </div>
-      <div className="bg-white  flex flex-col items-center gap-[20px] px-[10px] py-[40px] rounded-[4px]">
+      <div className="bg-white  flex lg:flex-col flex-row items-center lg:gap-[20px] justify-around w-full  lg:px-[10px] lg:py-[40px] rounded-[4px]">
         {navList.map((listItem) => (
           <NavLink
             key={listItem.path}
@@ -58,7 +58,7 @@ function Navbar() {
                 : "border-b-[1px] border-gray-300"
             }
           >
-            <div className="flex flex-col gap-[10px] items-center">
+            <div className="flex flex-col gap-[10px] items-center lg:py-0 py-[10px]">
               {listItem.icon}
               <p className="text-[14px]">{listItem.displayName}</p>
             </div>
