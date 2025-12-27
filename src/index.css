@@ -1,1 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap");
 @import "tailwindcss";
+
+@theme {
+  /* Custom colors */
+  --color-light-green: #78CC6D
+  --color-font-dark: #323232;
+
+  /* Custom fonts */
+  --font-play: "play";
+}
