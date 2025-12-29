@@ -17,6 +17,7 @@ export interface User {
   jobTitle: string;
   education: {
     institution: string;
+    location: string;
     degree: string;
     startDate: string;
     endDate: string;
@@ -39,18 +40,28 @@ const user: User = {
   jobTitle: "Software Engineer",
   education: [
     {
-      institution: "University of Example",
-      degree: "BSc in Computer Science",
+      institution: "Sri Lanka Institute of Information Technology",
+      location: "Malabe, Sri Lanka",
+      degree: "BSc in Computer Science specializing in Software Engineering",
       startDate: "2015",
       endDate: "2019",
-      results: "First Class Honors",
+      results: "3.3 Gpa",
     },
     {
-      institution: "University of Example",
-      degree: "BSc in Computer Science",
+      institution: "Ananda College",
+      location: "Colombo, Sri Lanka",
+      degree: "Ordinary Level (O/L)",
       startDate: "2015",
       endDate: "2019",
-      results: "First Class Honors",
+      results: "9 A's",
+    },
+    {
+      institution: "Ananda College",
+      location: "Colombo, Sri Lanka",
+      degree: "Advanced Level (A/L)",
+      startDate: "2015",
+      endDate: "2019",
+      results: "2 C's 1 S",
     },
   ],
 };
@@ -71,7 +82,7 @@ function App() {
         <Navbar />
         <ProfileContainer />
       </div>
-      <div className="2xl:w-[1000px] xl:w-[800px] lg:w-[600px] w-full  h-[650px] overflow-scroll lg:px-0 px-[20px]">
+      <div className="2xl:w-[1000px] xl:w-[800px] lg:w-[600px] w-full  h-[650px] overflow-y-scroll lg:px-0 px-[20px]">
         <div className="w-full h-full">
           <Routes>
             <Route path="/" element={<About {...user} />} />
