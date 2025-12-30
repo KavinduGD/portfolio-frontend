@@ -42,7 +42,7 @@ const user: User = {
     {
       institution: "Sri Lanka Institute of Information Technology",
       location: "Malabe, Sri Lanka",
-      degree: "BSc in Computer Science specializing in Software Engineering",
+      degree: "BSc in Software Engineering",
       startDate: "2015",
       endDate: "2019",
       results: "3.3 Gpa",
@@ -82,7 +82,7 @@ function App() {
         <Navbar />
         <ProfileContainer />
       </div>
-      <div className="2xl:w-[1000px] xl:w-[800px] lg:w-[600px] w-full  h-[650px] overflow-y-scroll lg:px-0 px-[20px]">
+      <div className="2xl:w-[1000px] xl:w-[800px] lg:w-[600px] w-full  lg:h-[650px] lg:overflow-y-scroll lg:px-0 px-[20px]">
         <div className="w-full h-full">
           <Routes>
             <Route path="/" element={<About {...user} />} />

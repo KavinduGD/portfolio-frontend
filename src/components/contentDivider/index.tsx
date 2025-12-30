@@ -17,10 +17,10 @@ interface WrapperProps extends React.PropsWithChildren {
 
 const ContentDivider = (props: WrapperProps) => {
   return (
-    <div>
+    <div className="pb-[20px]">
       <Topic topicName={props.title} />
       <div
-        className=" grid grid-cols-2 
+        className="grid grid-cols-1 sm:grid sm:grid-cols-2 
           "
       >
         {props.children}
