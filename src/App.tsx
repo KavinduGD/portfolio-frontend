@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/navbar";
 import ProfileContainer from "./components/profileContainer";
 import About from "./pages/about";
+import Resume from "./pages/resume";
 
 export interface User {
   fullName: string;
@@ -86,7 +87,7 @@ function App() {
         <div className="w-full h-full">
           <Routes>
             <Route path="/" element={<About {...user} />} />
-            <Route path="/about" element={<>sdsd</>} />
+            <Route path="/resume" element={<Resume {...user} />} />
           </Routes>
         </div>
       </div>

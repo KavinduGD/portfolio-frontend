@@ -12,17 +12,14 @@ import Topic from "../topic";
 // Define the props, extending React.PropsWithChildren
 interface WrapperProps extends React.PropsWithChildren {
   title: string;
-  padding?: number; // Optional prop
+  style?: string;
 }
 
 const ContentDivider = (props: WrapperProps) => {
   return (
     <div className="pb-[20px]">
       <Topic topicName={props.title} />
-      <div
-        className="grid grid-cols-1 sm:grid sm:grid-cols-2 
-          "
-      >
+      <div className={props.style || "grid grid-cols-1 sm:grid sm:grid-cols-2"}>
         {props.children}
       </div>
     </div>
