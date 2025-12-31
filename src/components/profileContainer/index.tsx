@@ -4,11 +4,11 @@ import { FaFacebook } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaDownload } from "react-icons/fa";
 import { IoCall } from "react-icons/io5";
+import { FaYoutube } from "react-icons/fa";
 
 function ProfileContainer() {
   return (
     <div className="2xl:w-[420px] xl:w-[350px] lg:w-[280px] w-full h-[700px]  bg-[#faf9f9]  overflow-hidden rounded-[4px] flex flex-col items-center ">
-      {/* Image with triangle cut */}
       <div
         className="w-full h-[450px] bg-cover bg-center bg-no-repeat"
         style={{
@@ -17,9 +17,8 @@ function ProfileContainer() {
         }}
       />
 
-      {/* Content below image */}
       <div className="mt-[30px] text-center">
-        <h2 className="xl:text-[26px] lg:text-[18px] text-[30px] font-bold">
+        <h2 className="xl:text-[26px] lg:text-[18px] sm:text-[30px] text-[24px] font-bold">
           Kavindu Gihan Dharmasiri
         </h2>
         <p className="text-blue-600 text-[18px]">Software Engineer</p>
@@ -48,6 +47,12 @@ function ProfileContainer() {
           className="hover:text-black transition"
         >
           <FaSquareXTwitter />
+        </a>
+        <a
+          href="https://github.com/your-username"
+          className="hover:text-black transition"
+        >
+          <FaYoutube />
         </a>
       </div>
 
