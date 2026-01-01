@@ -3,6 +3,7 @@ import Navbar from "./components/navbar";
 import ProfileContainer from "./components/profileContainer";
 import About from "./pages/about";
 import Resume from "./pages/resume";
+import backgroundImage from "./assets/background.jpg";
 
 export interface User {
   fullName: string;
@@ -76,7 +77,7 @@ function App() {
       md:flex lg:flex-row flex-col
       "
       style={{
-        backgroundImage: "url('src/assets/background.jpg')",
+        backgroundImage: `url(${backgroundImage})`,
       }}
     >
       <div className="flex items-center lg:flex-row flex-col lg:w-auto w-full lg:px-0 px-[20px] lg:py-0 py-[10px] xl:gap-[10px] lg:gap-[5px]  gap-[20px]">

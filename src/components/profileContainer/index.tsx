@@ -5,6 +5,7 @@ import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaDownload } from "react-icons/fa";
 import { IoCall } from "react-icons/io5";
 import { FaYoutube } from "react-icons/fa";
+import profilePic from "../../assets/profile-pic.png";
 
 function ProfileContainer() {
   return (
@@ -12,7 +13,7 @@ function ProfileContainer() {
       <div
         className="w-full h-[450px] bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url('src/assets/profile-pic.png')",
+          backgroundImage: `url(${profilePic})`,
           clipPath: "polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%)",
         }}
       />
