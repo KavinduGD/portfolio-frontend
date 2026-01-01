@@ -1,4 +1,3 @@
-import React from "react";
 import Education from "../../components/education";
 import type { User } from "../../App";
 import GeneralSkills from "../../components/generalSkills";

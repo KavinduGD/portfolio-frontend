@@ -1,25 +1,3 @@
-// import React from "react";
-// import type Technology from "../technology";
-
-// function TechnologyCard(technology: Technology) {
-//   return (
-//     <div className="flex flex-col items-center justify-between py-[20px] bg-gray-200 w-[150px] rounded-lg">
-//       <div className="flex flex-col justify-between items-center">
-//         <img
-//           src={technology.icon}
-//           alt="tech image"
-//           className="w-[60px] h-[60px]"
-//         />
-//         <p>{technology.level} %</p>
-//       </div>
-//       <p>{technology.technology}</p>
-//     </div>
-//   );
-// }
-
-// export default TechnologyCard;
-
-import React from "react";
 import type Technology from "../technology";
 
 function TechnologyCard({ technology, level, icon }: Technology) {
