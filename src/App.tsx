@@ -2,6 +2,70 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/navbar";
 import ProfileContainer from "./components/profileContainer";
 import About from "./pages/about";
+import Resume from "./pages/resume";
+
+export interface User {
+  fullName: string;
+  shortName: string;
+  about: string;
+  age: number;
+  address: string;
+  Languages: string[];
+  email: string;
+  linkedIn: string;
+  github: string;
+  phone: string;
+  jobTitle: string;
+  education: {
+    institution: string;
+    location: string;
+    degree: string;
+    startDate: string;
+    endDate: string;
+    results: string;
+  }[];
+}
+
+const user: User = {
+  fullName: "John Doe",
+  shortName: "John",
+  about:
+    "Hey, there 👋 I'm Benjamin, a Software developer and Data scientist with over 8+ years of experience, specialising in Java and React. Also I proficient at using tools and programming languages such as Python or SQL to manipulate and analyze data.",
+  age: 30,
+  address: "49/133 N, Thiththalapitigoda,yakkala , Gamapaha,  Sri Lanka",
+  Languages: ["English", "Sinhala"],
+  email: "kavidudharmasiri90@gmail.com",
+  linkedIn: "https://www.linkedin.com/in/kavindu-dharmasiri-90/",
+  github: "https://github.com/kavindu-dharmasiri",
+  phone: "+94 76 123 4567",
+  jobTitle: "Software Engineer",
+  education: [
+    {
+      institution: "Sri Lanka Institute of Information Technology",
+      location: "Malabe, Sri Lanka",
+      degree: "BSc in Software Engineering",
+      startDate: "2015",
+      endDate: "2019",
+      results: "3.3 Gpa",
+    },
+    {
+      institution: "Ananda College",
+      location: "Colombo, Sri Lanka",
+      degree: "Ordinary Level (O/L)",
+      startDate: "2015",
+      endDate: "2019",
+      results: "9 A's",
+    },
+    {
+      institution: "Ananda College",
+      location: "Colombo, Sri Lanka",
+      degree: "Advanced Level (A/L)",
+      startDate: "2015",
+      endDate: "2019",
+      results: "2 C's 1 S",
+    },
+  ],
+};
 
 function App() {
   return (
@@ -19,11 +83,11 @@ function App() {
         <Navbar />
         <ProfileContainer />
       </div>
-      <div className="2xl:w-[1000px] xl:w-[800px] lg:w-[600px] w-full  h-[650px] overflow-scroll lg:px-0 px-[20px]">
-        <div className=" bg-[#FEFEFE] w-full h-full">
+      <div className="2xl:w-[1000px] xl:w-[800px] lg:w-[600px] w-full  lg:h-[650px] lg:overflow-y-scroll lg:px-0 px-[20px]">
+        <div className="w-full h-full">
           <Routes>
-            <Route path="/" element={<About />} />
-            <Route path="/about" element={<>sdsd</>} />
+            <Route path="/" element={<About {...user} />} />
+            <Route path="/resume" element={<Resume {...user} />} />
           </Routes>
         </div>
       </div>

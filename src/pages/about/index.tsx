@@ -1,10 +1,14 @@
-import React from "react";
-import Topic from "../../components/topic";
+import type { User } from "../../App";
+import Education from "../../components/education";
+import GeneralSkills from "../../components/generalSkills";
+import AboutTop from "./components/AboutTop";
 
-function About() {
+function About(user: User) {
   return (
-    <div>
-      <Topic topicName="About Me" />
+    <div className="bg-[#FEFEFE]">
+      <AboutTop {...user} />
+      <GeneralSkills />
+      <Education {...user} />
     </div>
   );
 }
