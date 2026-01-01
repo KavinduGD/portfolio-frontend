@@ -10,7 +10,8 @@ on:
 env:
   DOCKERHUB_USERNAME: ${{ vars.DOCKERHUB_USERNAME }}
   DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
-
+  STAGE_BASE_URL: ${{ vars.STAGE_BASE_URL}}
+  PROD_BASE_URL: ${{ vars.PROD_BASE_URL}}
 jobs:
   build_and_test:
     # closed event triggered by merged PRs only
@@ -54,6 +55,14 @@ jobs:
       - name: Set image tag
         run: echo "TAG=${GITHUB_SHA::10}" >> $GITHUB_ENV
 
+      - name: Set VITE_BASE_URL
+        run: |
+          if [ "${{ github.ref_name }}" = "main" ]; then
+            echo "VITE_BASE_URL=${{ env.PROD_BASE_URL }}" >> $GITHUB_ENV
+          else
+            echo "VITE_BASE_URL=${{ env.STAGE_BASE_URL }}" >> $GITHUB_ENV
+          fi
+
       - name: Build and Push Docker image
         run: |
           if [ "${{ github.ref_name }}" = "main" ]; then
@@ -61,6 +70,22 @@ jobs:
           else
             IMAGE_NAME="${{ env.DOCKERHUB_USERNAME }}/stage-frontend:${TAG}"
           fi
+
           echo "Building and pushing image: $IMAGE_NAME"
-          docker build -t $IMAGE_NAME .
+
+          docker build \
+            --build-arg VITE_BASE_URL=${VITE_BASE_URL} \
+            -t $IMAGE_NAME .
+
           docker push $IMAGE_NAME
+
+      # - name: Build and Push Docker image
+      #   run: |
+      #     if [ "${{ github.ref_name }}" = "main" ]; then
+      #       IMAGE_NAME="${{ env.DOCKERHUB_USERNAME }}/frontend:${TAG}"
+      #     else
+      #       IMAGE_NAME="${{ env.DOCKERHUB_USERNAME }}/stage-frontend:${TAG}"
+      #     fi
+      #     echo "Building and pushing image: $IMAGE_NAME"
+      #     docker build -t $IMAGE_NAME .
+      #     docker push $IMAGE_NAME
