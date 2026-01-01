@@ -1,8 +1,13 @@
 import "@testing-library/jest-dom";
+import { TextEncoder, TextDecoder } from "util";
 
-// Polyfill TextEncoder/TextDecoder for jsdom
-if (typeof TextEncoder === "undefined") {
-  const { TextEncoder, TextDecoder } = require("util");
-  global.TextEncoder = TextEncoder;
-  global.TextDecoder = TextDecoder;
+/**
+ * jsdom does not provide TextEncoder/TextDecoder by default.
+ * We polyfill them for Jest tests.
+ */
+if (typeof globalThis.TextEncoder === "undefined") {
+  globalThis.TextEncoder =
+    TextEncoder as unknown as typeof globalThis.TextEncoder;
+  globalThis.TextDecoder =
+    TextDecoder as unknown as typeof globalThis.TextDecoder;
 }

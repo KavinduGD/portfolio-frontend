@@ -1,4 +1,3 @@
-import React from "react";
 import type { User } from "../../App";
 import ContentDivider from "../contentDivider";
 
