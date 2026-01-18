@@ -4,28 +4,8 @@ import ProfileContainer from "./components/profileContainer";
 import About from "./pages/about";
 import Resume from "./pages/resume";
 import backgroundImage from "./assets/background.jpg";
-
-export interface User {
-  fullName: string;
-  shortName: string;
-  about: string;
-  age: number;
-  address: string;
-  Languages: string[];
-  email: string;
-  linkedIn: string;
-  github: string;
-  phone: string;
-  jobTitle: string;
-  education: {
-    institution: string;
-    location: string;
-    degree: string;
-    startDate: string;
-    endDate: string;
-    results: string;
-  }[];
-}
+import Projects from "./pages/projects";
+import type { User } from "./types";
 
 const user: User = {
   fullName: "John Doe",
@@ -89,6 +69,7 @@ function App() {
           <Routes>
             <Route path="/" element={<About {...user} />} />
             <Route path="/resume" element={<Resume {...user} />} />
+            <Route path="/projects" element={<Projects />} />
           </Routes>
         </div>
       </div>

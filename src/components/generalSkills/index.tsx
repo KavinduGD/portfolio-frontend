@@ -1,12 +1,8 @@
+import type { Skill } from "../../types/skill";
 import ContentDivider from "../contentDivider";
 import skillImage from "./skillImage.png";
-interface skill {
-  skill: string;
-  description: string;
-  imageUrl: string;
-}
 
-const skills: skill[] = [
+const skills: Skill[] = [
   {
     skill: "Web development",
     description:

@@ -1,12 +1,7 @@
 import TechnologyCard from "../technologyCard";
 import ContentDivider from "../../../../components/contentDivider";
+import type { Technology } from "../../../../types";
 
-interface Technology {
-  technology: string;
-  level: number;
-  icon: string;
-  type: string;
-}
 const ICON_URL =
   "https://images.icon-icons.com/2415/PNG/512/react_original_wordmark_logo_icon_146375.png";
 const ICON_URL1 =
@@ -20,10 +15,6 @@ const ICON_URL3 =
 
 const ICON_URL4 =
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF57IURCrdAcTEf9Ga03Fx-kTxSrKJmVM0DQ&s";
-
-/* 
-[{"type":[{technology}]]
-  */
 
 const technologyList: Technology[] = [
   // ================= PROGRAMMING =================

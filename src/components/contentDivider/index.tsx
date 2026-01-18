@@ -19,7 +19,7 @@ const ContentDivider = (props: WrapperProps) => {
   return (
     <div className="pb-[20px]">
       <Topic topicName={props.title} />
-      <div className={props.style || "grid grid-cols-1 sm:grid sm:grid-cols-2"}>
+      <div className={props.style || "grid grid-cols-1  sm:grid-cols-2"}>
         {props.children}
       </div>
     </div>
