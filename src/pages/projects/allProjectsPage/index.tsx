@@ -9,6 +9,8 @@ type ChildProps = {
 
 function AllProjectsCardsPage({ projects }: ChildProps) {
   const navigate = useNavigate();
+  // sort projects by score in descending order
+  projects.sort((a, b) => b.score - a.score);
   return (
     <div className=" bg-[#FEFEFE]">
       <ContentDivider title="Projects">

@@ -56,4 +56,5 @@ export interface ICert {
   ImageUrl: string;
   tags: string[];
   certificateLink: string;
+  score: number;
 }

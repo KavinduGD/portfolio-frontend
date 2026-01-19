@@ -238,6 +238,7 @@ const certificates: ICert[] = [
     tags: ["web", "html", "css", "javascript"],
     certificateLink:
       "https://media.licdn.com/dms/image/sync/v2/D5627AQFTHSQEntmyxQ/articleshare-shrink_800/articleshare-shrink_800/0/1711957866377?e=2147483647&v=beta&t=4AvjzR2kVSFH_855dudqwyCH_Y0FOLwzHVjXuL15HBM",
+    score: 90,
   },
   {
     certificateID: "cert-02",
@@ -250,6 +251,7 @@ const certificates: ICert[] = [
     tags: ["react", "frontend", "ui"],
     certificateLink:
       "https://res.cloudinary.com/certifier/image/upload/v1753911314/image8_7e995ca255.webp",
+    score: 38,
   },
   {
     certificateID: "cert-03",
@@ -262,6 +264,7 @@ const certificates: ICert[] = [
     tags: ["design", "ui", "ux"],
     certificateLink:
       "https://i.pinimg.com/736x/81/19/83/811983fde219f9c0724bc7f5fede1d68.jpg",
+    score: 20,
   },
   {
     certificateID: "cert-04",
@@ -274,6 +277,7 @@ const certificates: ICert[] = [
     tags: ["security", "hacking", "cybersecurity"],
     certificateLink:
       "https://media.licdn.com/dms/image/sync/v2/D5627AQEXZ4032gIKog/articleshare-shrink_800/articleshare-shrink_800/0/1711076689293?e=2147483647&v=beta&t=Z-okXwxnkxMQ0c6K6AjKQEcm3dNwx_IHYYQ-SoGNRbc",
+    score: 100,
   },
 ];
 

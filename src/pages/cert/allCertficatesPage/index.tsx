@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 
 function AllCertificatePage({ certificates }: { certificates: ICert[] }) {
   const navigate = useNavigate();
+  // sort certificates by score in descending order
+  certificates.sort((a, b) => b.score - a.score);
   return (
     <div className="bg-[#FEFEFE]">
       <ContentDivider title="Certificates">
