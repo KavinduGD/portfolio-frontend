@@ -9,6 +9,7 @@ import AllProjectsCardsPage from "./pages/projects/allProjectsPage";
 import SingleProject from "./pages/projects/singleProjectPage";
 import AllCertificatePage from "./pages/cert/allCertficatesPage";
 import SingleCertificatePage from "./pages/cert/singleCertificatePage";
+import ContactPage from "./pages/contact";
 
 const user: User = {
   fullName: "John Doe",
@@ -320,6 +321,7 @@ function App() {
               path="/certificates/:certificateID"
               element={<SingleCertificatePage certificates={certificates} />}
             />
+            <Route path="/contact" element={<ContactPage user={user} />} />
           </Routes>
         </div>
       </div>
