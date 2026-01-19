@@ -1,5 +1,5 @@
-import ContentDivider from "../../../../components/contentDivider";
-import type { Project } from "../../../../types";
+import ContentDivider from "../../../components/contentDivider";
+import type { Project } from "../../../types";
 import { useParams } from "react-router-dom";
 
 function SingleProject({ projects }: { projects: Project[] }) {

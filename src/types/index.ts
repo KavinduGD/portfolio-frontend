@@ -46,3 +46,14 @@ export interface User {
     results: string;
   }[];
 }
+
+export interface ICert {
+  certificateID: string;
+  name: string;
+  issuer: string;
+  issueDate: string;
+  credentialsId: string;
+  ImageUrl: string;
+  tags: string[];
+  certificateLink: string;
+}

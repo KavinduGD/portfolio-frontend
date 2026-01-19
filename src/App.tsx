@@ -4,9 +4,11 @@ import ProfileContainer from "./components/profileContainer";
 import About from "./pages/about";
 import Resume from "./pages/resume";
 import backgroundImage from "./assets/background.jpg";
-import type { Project, User } from "./types";
-import AllProjectsCardsPage from "./pages/projects/components/allProjectsCardsPage";
-import SingleProject from "./pages/projects/components/singleProject";
+import type { ICert, Project, User } from "./types";
+import AllProjectsCardsPage from "./pages/projects/allProjectsPage";
+import SingleProject from "./pages/projects/singleProjectPage";
+import AllCertificatePage from "./pages/cert/allCertficatesPage";
+import SingleCertificatePage from "./pages/cert/singleCertificatePage";
 
 const user: User = {
   fullName: "John Doe",
@@ -224,6 +226,57 @@ const p: Project[] = [
   },
 ];
 
+const certificates: ICert[] = [
+  {
+    certificateID: "cert-01",
+    name: "Web Development Bootcamp",
+    issuer: "Udemy",
+    issueDate: "2023-06-15",
+    credentialsId: "UDM-123456 UDM-123456UDM-123456UDM-123456UDM-123456",
+    ImageUrl:
+      "https://media.licdn.com/dms/image/sync/v2/D5627AQFTHSQEntmyxQ/articleshare-shrink_800/articleshare-shrink_800/0/1711957866377?e=2147483647&v=beta&t=4AvjzR2kVSFH_855dudqwyCH_Y0FOLwzHVjXuL15HBM",
+    tags: ["web", "html", "css", "javascript"],
+    certificateLink:
+      "https://media.licdn.com/dms/image/sync/v2/D5627AQFTHSQEntmyxQ/articleshare-shrink_800/articleshare-shrink_800/0/1711957866377?e=2147483647&v=beta&t=4AvjzR2kVSFH_855dudqwyCH_Y0FOLwzHVjXuL15HBM",
+  },
+  {
+    certificateID: "cert-02",
+    name: "React Fundamentals",
+    issuer: "Certifier",
+    issueDate: "2023-09-10",
+    credentialsId: "CERT-987654 UDM-123456UDM-123456UDM-123456UDM-123456",
+    ImageUrl:
+      "https://res.cloudinary.com/certifier/image/upload/v1753911314/image8_7e995ca255.webp",
+    tags: ["react", "frontend", "ui"],
+    certificateLink:
+      "https://res.cloudinary.com/certifier/image/upload/v1753911314/image8_7e995ca255.webp",
+  },
+  {
+    certificateID: "cert-03",
+    name: "UI/UX Design Basics",
+    issuer: "Pinterest Academy",
+    issueDate: "2022-11-05",
+    credentialsId: "UIUX-456789 UDM-123456UDM-123456UDM-123456UDM-123456",
+    ImageUrl:
+      "https://i.pinimg.com/736x/81/19/83/811983fde219f9c0724bc7f5fede1d68.jpg",
+    tags: ["design", "ui", "ux"],
+    certificateLink:
+      "https://i.pinimg.com/736x/81/19/83/811983fde219f9c0724bc7f5fede1d68.jpg",
+  },
+  {
+    certificateID: "cert-04",
+    name: "Ethical Hacking Bootcamp",
+    issuer: "Udemy",
+    issueDate: "2024-02-20",
+    credentialsId: "UDEMY-HACK-001 UDM-123456UDM-123456UDM-123456UDM-123456",
+    ImageUrl:
+      "https://media.licdn.com/dms/image/sync/v2/D5627AQEXZ4032gIKog/articleshare-shrink_800/articleshare-shrink_800/0/1711076689293?e=2147483647&v=beta&t=Z-okXwxnkxMQ0c6K6AjKQEcm3dNwx_IHYYQ-SoGNRbc",
+    tags: ["security", "hacking", "cybersecurity"],
+    certificateLink:
+      "https://media.licdn.com/dms/image/sync/v2/D5627AQEXZ4032gIKog/articleshare-shrink_800/articleshare-shrink_800/0/1711076689293?e=2147483647&v=beta&t=Z-okXwxnkxMQ0c6K6AjKQEcm3dNwx_IHYYQ-SoGNRbc",
+  },
+];
+
 const projects = Array(4).fill(p[0]) as Project[];
 
 function App() {
@@ -254,6 +307,14 @@ function App() {
             <Route
               path="/projects/:projectID"
               element={<SingleProject projects={projects} />}
+            />
+            <Route
+              path="/certificates"
+              element={<AllCertificatePage certificates={certificates} />}
+            />
+            <Route
+              path="/certificates/:certificateID"
+              element={<SingleCertificatePage certificates={certificates} />}
             />
           </Routes>
         </div>
