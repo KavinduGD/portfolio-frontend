@@ -12,53 +12,60 @@ function SingleProject({ project }: { project: Project }) {
               <img
                 src={url}
                 alt="project image"
-                className="w-1/2 object-cover rounded-lg"
+                className="w-1/2 object-cover"
               />
             );
           })}
         </div>
         {/* links */}
-        <div className="flex gap-[30px]">
+        <div className="flex gap-x-[30px] gap-y-[10px] mt-[20px] flex-wrap">
           {project.links.map((link) => {
             return (
-              <a href={link.link} target="_blank">
+              <a
+                href={link.link}
+                target="_blank"
+                className="text-[14px] bg-[#0494FA] text-[#fefefe] px-[6px] py-[1px] rounded-[6px] hover:text-blue-700"
+              >
                 {link.linkName}
               </a>
             );
           })}
         </div>
+
         {/* created date */}
-        <div className="flex gap-[20px]">
-          <p>Created Date - </p>
-          <p>{project.startedDate}</p>
+        <div className="flex gap-[10px] mt-[20px] items-start">
+          <p className="text-[#999] text-[14px]">Created Date - </p>
+          <p className="text-gray-500 text-[14px]">{project.startedDate}</p>
         </div>
-        {/* technology */}
-        <div className="flex gap-[30px]">
-          {project.technologies.map((technology) => {
-            return <img src={technology.icon} className="w-[50px]" />;
-          })}
-        </div>
-        {/* tags */}
-        <div className="flex gap-[20px]">
-          {project.tags.map((tag) => {
-            return <p>{tag}</p>;
-          })}
-        </div>
+
         {/* description */}
-        <p>Description</p>
-        <p>{project.projectDescription}</p>
+        <p className="mt-[5px] leading-7 text-[#7a7a7a] text-[17px]">
+          {project.projectDescription}
+        </p>
+
+        {/* technology */}
+        <div className="flex gap-x-[30px] gap-y-[10px] mt-[30px] flex-wrap">
+          {project.technologies.map((technology) => {
+            return (
+              <img
+                src={technology.icon}
+                alt="technology images"
+                className="w-[50px]"
+              />
+            );
+          })}
+        </div>
 
         {/* architecture */}
-        <p>Project Architecture</p>
-        <div className="grid grid-cols-1  sm:grid-cols-2">
+        <div className="grid grid-cols-1  sm:grid-cols-2 mt-[30px] gap-x-[10px] gap-y-[10px]">
           {project.architectureImageUrls.map((url) => {
             return (
               <div>
-                <p>{url.diagramName}</p>
+                <p className="text-[#444] font-bold">{url.diagramName}</p>
                 <img
                   src={url.link}
                   alt="architecture diagram cover"
-                  className="object-cover1 rounded-lg h-[300px]"
+                  className="object-cover1 rounded-lg sm:h-[300px]"
                 />
               </div>
             );
@@ -66,8 +73,20 @@ function SingleProject({ project }: { project: Project }) {
         </div>
 
         {/* architecture description */}
-        <p>Description</p>
-        <p>{project.architectureDescription}</p>
+        <p className="mt-[20px] leading-7 text-[#7a7a7a] text-[17px]">
+          {project.architectureDescription}
+        </p>
+
+        {/* tags */}
+        <div className="flex gap-x-[30px] mt-[10px] flex-wrap gap-y-[10px]">
+          {project.tags.map((tag) => {
+            return (
+              <p className="text-[#0494FA] border-[1px] border-[#0494FA] px-[4px] text-[13px] bg-[#e7f6ff]">
+                {tag}
+              </p>
+            );
+          })}
+        </div>
       </div>
     </ContentDivider>
   );
