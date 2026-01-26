@@ -1,5 +1,5 @@
 import ContentDivider from "../../../../components/contentDivider";
-import type { User } from "../../../../App";
+import type { User } from "../../../../types";
 
 function AboutTop(user: User) {
   return (
@@ -33,7 +33,7 @@ function AboutTop(user: User) {
             Languages
           </p>
           <p className="text-[17px] text-[#444444]">
-            {user.Languages.join(", ")}
+            {user.languages.join(", ")}
           </p>
         </div>
       </div>

@@ -31,7 +31,7 @@ export interface User {
   about: string;
   age: number;
   address: string;
-  Languages: string[];
+  languages: string[];
   email: string;
   linkedIn: string;
   github: string;
@@ -41,8 +41,8 @@ export interface User {
     institution: string;
     location: string;
     degree: string;
-    startDate: string;
-    endDate: string;
+    startYear: string;
+    endYear: string;
     results: string;
   }[];
 }

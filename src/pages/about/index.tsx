@@ -1,6 +1,6 @@
-import type { User } from "../../App";
 import Education from "../../components/education";
 import GeneralSkills from "../../components/generalSkills";
+import type { User } from "../../types";
 import AboutTop from "./components/AboutTop";
 
 function About(user: User) {
