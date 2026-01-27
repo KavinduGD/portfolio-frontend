@@ -1,8 +1,8 @@
 import ContentDivider from "../../../components/contentDivider";
-import type { ICert } from "../../../types";
+import type { Cert } from "../../../types";
 import { useParams } from "react-router-dom";
 
-function SingleCertificatePage({ certificates }: { certificates: ICert[] }) {
+function SingleCertificatePage({ certificates }: { certificates: Cert[] }) {
   const { certificateID } = useParams<{ certificateID: string }>();
   const certificate = certificates.find(
     (c) => c.certificateID === certificateID,
@@ -17,15 +17,15 @@ function SingleCertificatePage({ certificates }: { certificates: ICert[] }) {
   }
 
   return (
-    <div className="bg-[#FEFEFE] h-full">
+    <div className="bg-[#FEFEFE] min-h-full">
       <ContentDivider
         title={certificate.name}
-        style="flex xl:flex-row flex-col xl:gap-[10px] xl:px-0 px-[20px]"
+        style="flex xl:flex-row flex-col xl:gap-[10px] xl:px-[5px] sm:px-[20px] px-[10px]"
       >
         {/* image */}
         <img
-          src={certificate.ImageUrl}
-          alt="project image"
+          src={certificate.imageUrl}
+          alt="cert image"
           className=" object-cover xl:w-5/8 w-full"
         />
         {/* link*/}

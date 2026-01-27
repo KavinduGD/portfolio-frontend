@@ -49,13 +49,13 @@ export interface User {
   }[];
 }
 
-export interface ICert {
+export interface Cert {
   certificateID: string;
   name: string;
   issuer: string;
   issueDate: string;
   credentialsId: string;
-  ImageUrl: string;
+  imageUrl: string;
   tags: string[];
   certificateLink: string;
   score: number;

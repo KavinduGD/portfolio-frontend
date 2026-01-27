@@ -61,7 +61,7 @@ function ContactForm() {
           value={formData.name}
           onChange={handleChange}
           required
-          className="w-full border p-2 focus:outline-none border-[1px] border-gray-400 "
+          className="w-full border p-2 focus:outline-none border-[1px] border-gray-200 "
         />
 
         <input
@@ -71,7 +71,7 @@ function ContactForm() {
           value={formData.email}
           onChange={handleChange}
           required
-          className="w-full border p-2 focus:outline-none border-[1px] border-gray-400  focus:outline-none "
+          className="w-full border p-2 focus:outline-none border-[1px] border-gray-200  focus:outline-none "
         />
 
         <textarea
@@ -80,7 +80,7 @@ function ContactForm() {
           value={formData.message}
           onChange={handleChange}
           required
-          className="w-full border p-2 h-32 focus:outline-none border-[1px] border-gray-400 "
+          className="w-full border p-2 h-32 focus:outline-none border-[1px] border-gray-200 "
         />
         {success && <p className="text-green-600">{success}</p>}
         <button

@@ -1,14 +1,14 @@
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import ContentDivider from "../../../components/contentDivider";
-import type { ICert } from "../../../types";
+import type { Cert } from "../../../types";
 import { useNavigate } from "react-router-dom";
 
-function AllCertificatePage({ certificates }: { certificates: ICert[] }) {
+function AllCertificatePage({ certificates }: { certificates: Cert[] }) {
   const navigate = useNavigate();
   // sort certificates by score in descending order
   certificates.sort((a, b) => b.score - a.score);
   return (
-    <div className="bg-[#FEFEFE]">
+    <div className="bg-[#FEFEFE] min-h-full">
       <ContentDivider title="Certificates">
         {certificates.map((certificate) => {
           return (
@@ -24,9 +24,9 @@ function AllCertificatePage({ certificates }: { certificates: ICert[] }) {
               >
                 <div className="overflow-hidden rounded-md">
                   <img
-                    src={certificate.ImageUrl}
+                    src={certificate.imageUrl}
                     alt=""
-                    className="transform transition-transform duration-300 ease-in-out group-hover:scale-110"
+                    className="transform transition-transform duration-300 ease-in-out group-hover:scale-110 h-[300px]"
                   />
                 </div>
 
