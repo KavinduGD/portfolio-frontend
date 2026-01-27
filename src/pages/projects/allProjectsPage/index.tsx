@@ -12,7 +12,7 @@ function AllProjectsCardsPage({ projects }: ChildProps) {
   // sort projects by score in descending order
   projects.sort((a, b) => b.score - a.score);
   return (
-    <div className=" bg-[#FEFEFE]">
+    <div className=" bg-[#FEFEFE] min-h-full">
       <ContentDivider title="Projects">
         {projects.map((project) => {
           return (
@@ -26,11 +26,11 @@ function AllProjectsCardsPage({ projects }: ChildProps) {
                   navigate(`/projects/${project.projectID}`);
                 }}
               >
-                <div className="overflow-hidden rounded-md">
+                <div className="overflow-hidden rounded-md]">
                   <img
                     src={project.projectImageUrls[0]}
                     alt=""
-                    className="transform transition-transform duration-300 ease-in-out group-hover:scale-110"
+                    className="transform transition-transform duration-300 ease-in-out group-hover:scale-110 h-[300px] w-full object-cover "
                   />
                 </div>
 

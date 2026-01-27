@@ -3,7 +3,7 @@ export interface Project {
   projectName: string;
   projectDescription: string;
   startedDate: string;
-  technologies: Technology[];
+  technologies: string[];
   projectImageUrls: string[];
   links: { linkName: string; link: string }[];
   architectureImageUrls: { diagramName: string; link: string }[];
@@ -20,6 +20,7 @@ export interface Skill {
 }
 
 export interface Technology {
+  technologyID: string;
   technology: string;
   level: number;
   imageUrl: string;

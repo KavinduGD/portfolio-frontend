@@ -1,8 +1,14 @@
 import ContentDivider from "../../../components/contentDivider";
-import type { Project } from "../../../types";
+import type { Project, Technology } from "../../../types";
 import { useParams } from "react-router-dom";
 
-function SingleProject({ projects }: { projects: Project[] }) {
+function SingleProject({
+  projects,
+  technologyList,
+}: {
+  projects: Project[];
+  technologyList: Technology[];
+}) {
   const { projectID } = useParams<{ projectID: string }>();
 
   const project = projects.find((p) => p.projectID === projectID);
@@ -12,7 +18,7 @@ function SingleProject({ projects }: { projects: Project[] }) {
   }
 
   return (
-    <div className="bg-[#FEFEFE]">
+    <div className="bg-[#FEFEFE] min-h-full">
       <ContentDivider title={project.projectName} style="block">
         <div className="px-[20px] pt-[20px]">
           <div className="flex gap-[10px]">
@@ -54,11 +60,15 @@ function SingleProject({ projects }: { projects: Project[] }) {
 
           {/* technology */}
           <div className="flex gap-x-[30px] gap-y-[10px] mt-[30px] flex-wrap">
-            {project.technologies.map((technology) => {
+            {project.technologies.map((technologyId) => {
+              const technology = technologyList.find(
+                (tech) => tech.technologyID === technologyId,
+              );
+              if (!technology) return null;
               return (
                 <img
-                  src={technology.icon}
-                  alt="technology images"
+                  src={technology.imageUrl}
+                  alt={`technology image of ${technology.technology}`}
                   className="w-[50px]"
                 />
               );
