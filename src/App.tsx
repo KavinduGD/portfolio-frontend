@@ -4,7 +4,7 @@ import ProfileContainer from "./components/profileContainer";
 import About from "./pages/about";
 import Resume from "./pages/resume";
 import backgroundImage from "./assets/background.jpg";
-import type { ICert, Project, User } from "./types";
+import type { ICert, Project, Skill, User } from "./types";
 import AllProjectsCardsPage from "./pages/projects/allProjectsPage";
 import SingleProject from "./pages/projects/singleProjectPage";
 import AllCertificatePage from "./pages/cert/allCertficatesPage";
@@ -248,20 +248,25 @@ const projects = Array(4).fill(p[0]) as Project[];
 
 function App() {
   const [user, setUser] = useState<User | null>(null);
+  const [skills, setSkills] = useState<Skill[]>([]);
 
   useEffect(() => {
-    const fetchUser = async () => {
+    const fetchData = async () => {
       try {
-        const response = await frontendAxios.get<User>("/api/user");
-        setUser(response.data);
+        const userResponse = await frontendAxios.get<User>("/api/user");
+        setUser(userResponse.data);
+        const skillsResponse = await frontendAxios.get<Skill[]>("/api/skill");
+        setSkills(skillsResponse.data);
       } catch (error) {
         console.error("Error fetching user data:", error);
       }
     };
-    fetchUser();
+    fetchData();
   }, []);
 
-  if (!user) {
+  console.log("skills", skills);
+
+  if (!user || skills.length === 0) {
     return <Loading />;
   }
   return (
@@ -282,7 +287,7 @@ function App() {
       <div className="2xl:w-[1000px] xl:w-[800px] lg:w-[600px] w-full  lg:h-[650px] lg:overflow-y-scroll lg:px-0 px-[20px]">
         <div className="w-full h-full">
           <Routes>
-            <Route path="/" element={<About {...user} />} />
+            <Route path="/" element={<About user={user} skills={skills} />} />
             <Route path="/resume" element={<Resume {...user} />} />
             <Route
               path="/projects"

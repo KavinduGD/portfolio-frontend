@@ -13,6 +13,7 @@ export interface Project {
 }
 
 export interface Skill {
+  skillID: string;
   skill: string;
   description: string;
   imageUrl: string;
