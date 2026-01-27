@@ -244,20 +244,6 @@ const certificates: ICert[] = [
   },
 ];
 
-const ICON_URL =
-  "https://images.icon-icons.com/2415/PNG/512/react_original_wordmark_logo_icon_146375.png";
-const ICON_URL1 =
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkBKGzgKHQA42GTo40DCQUnNVkUWd3FMzFJA&s";
-
-const ICON_URL2 =
-  "https://p7.hiclipart.com/preview/31/119/666/github-logo-repository-computer-icons-github.jpg";
-
-const ICON_URL3 =
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIctrde40EK25GAg9Jxfh4xdwfbjo380nNQQ&s";
-
-const ICON_URL4 =
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF57IURCrdAcTEf9Ga03Fx-kTxSrKJmVM0DQ&s";
-
 const projects = Array(4).fill(p[0]) as Project[];
 
 function App() {
