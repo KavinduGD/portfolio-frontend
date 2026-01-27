@@ -22,7 +22,7 @@ export interface Skill {
 export interface Technology {
   technology: string;
   level: number;
-  icon: string;
+  imageUrl: string;
   type: string;
 }
 
