@@ -1,14 +1,22 @@
 import Education from "../../components/education";
-import type { User } from "../../App";
 import GeneralSkills from "../../components/generalSkills";
-import Technology from "./components/technology";
+import type { Skill, Technology, User } from "../../types";
+import Technologies from "./components/technology";
 
-function Resume(user: User) {
+function Resume({
+  user,
+  skills,
+  technologyList,
+}: {
+  user: User;
+  skills: Skill[];
+  technologyList: Technology[];
+}) {
   return (
     <div className="bg-[#FEFEFE]">
       <Education {...user} />
-      <GeneralSkills />
-      <Technology />
+      <GeneralSkills skills={skills} />
+      <Technologies technologyList={technologyList} />
     </div>
   );
 }

@@ -1,10 +1,10 @@
-import type Technology from "../technology";
+import type { Technology } from "../../../../types";
 
-function TechnologyCard({ technology, level, icon }: Technology) {
+function TechnologyCard(technology: Technology) {
   const isMobile = window.innerWidth < 640;
   const radius = isMobile ? 44 : 54;
   const circumference = 2 * Math.PI * radius;
-  const offset = circumference * (1 - level / 100);
+  const offset = circumference * (1 - technology.level / 100);
   return (
     <div className="px-[20px] py-[10px] rounded-3xl flex flex-col items-center bg-gray-300/10 sm:w-[180px] border-[1px] border-gray-200">
       {/* Circle container */}
@@ -37,13 +37,21 @@ function TechnologyCard({ technology, level, icon }: Technology) {
 
         {/* Icon + percentage */}
         <div className="absolute inset-1 flex flex-col items-center justify-center">
-          <img src={icon} alt="" className="w-[40px] sm:w-[50px]" />
-          <p className="text-sm font-semibold text-[#323232]">{level}%</p>
+          <img
+            src={technology.imageUrl}
+            alt=""
+            className="w-[40px] sm:w-[50px]"
+          />
+          <p className="text-sm font-semibold text-[#323232]">
+            {technology.level}%
+          </p>
         </div>
       </div>
 
       {/* Technology name */}
-      <p className="sm:text-[17px] text-[14px] text-[#444]">{technology}</p>
+      <p className="sm:text-[17px] text-[14px] text-[#444]">
+        {technology.technology}
+      </p>
     </div>
   );
 }

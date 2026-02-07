@@ -1,6 +1,10 @@
 FROM node:22.21.0-alpine AS build 
 
 ARG VITE_BASE_URL
+ARG VITE_GOOGLE_API_KEY
+ARG VITE_EMAILJS_SERVICE_ID
+ARG VITE_EMAILJS_TEMPLATE_ID
+ARG VITE_EMAILJS_PUBLIC_KEY
 
 WORKDIR /app
 
@@ -10,10 +14,20 @@ RUN npm i
 
 COPY . .
 
-RUN echo "VITE_BASE_URL=$VITE_BASE_URL" > .env
+RUN echo "VITE_BASE_URL=$VITE_BASE_URL" >> .env
+
+RUN echo "VITE_GOOGLE_API_KEY=$VITE_GOOGLE_API_KEY" >> .env
+
+RUN echo "VITE_EMAILJS_SERVICE_ID=$VITE_EMAILJS_SERVICE_ID" >> .env
+
+RUN echo "VITE_EMAILJS_TEMPLATE_ID=$VITE_EMAILJS_TEMPLATE_ID" >> .env
+
+RUN echo "VITE_EMAILJS_PUBLIC_KEY=$VITE_EMAILJS_PUBLIC_KEY" >> .env
+
 
 RUN npm run build
 
 FROM nginx:1.29.0
 
 COPY --from=build /app/dist /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
