@@ -26,31 +26,28 @@ function ProfileContainer() {
       </div>
       <div className="flex text-[24px] mt-[20px] text-[#323232] gap-[10px]">
         <a
-          href="https://github.com/your-username"
+          href="https://github.com/KavinduGD"
           className="hover:text-black transition"
         >
           <FaGithub />
         </a>
         <a
-          href="https://github.com/your-username"
+          href="https://www.linkedin.com/in/kavindu-dharmasiri/"
           className="hover:text-black transition"
         >
           <IoLogoLinkedin className="text-[27px]" />
         </a>
         <a
-          href="https://github.com/your-username"
+          href="https://www.facebook.com/"
           className="hover:text-black transition"
         >
           <FaFacebook />
         </a>
-        <a
-          href="https://github.com/your-username"
-          className="hover:text-black transition"
-        >
+        <a href="https://twitte.com/" className="hover:text-black transition">
           <FaSquareXTwitter />
         </a>
         <a
-          href="https://github.com/your-username"
+          href="https://www.youtube.com/channel/UCAZ3tqnqZsyI_c9Dm7MVJ3Q"
           className="hover:text-black transition"
         >
           <FaYoutube />
