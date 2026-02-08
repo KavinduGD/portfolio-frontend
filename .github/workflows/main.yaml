@@ -1,5 +1,9 @@
 name: backend workflow
 
+concurrency:
+  group: terraformportfolio-frontend-${{ github.ref }}
+  cancel-in-progress: false
+  
 on:
   pull_request:
     branches:

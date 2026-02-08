@@ -4,71 +4,57 @@ import ProfileContainer from "./components/profileContainer";
 import About from "./pages/about";
 import Resume from "./pages/resume";
 import backgroundImage from "./assets/background.jpg";
-
-export interface User {
-  fullName: string;
-  shortName: string;
-  about: string;
-  age: number;
-  address: string;
-  Languages: string[];
-  email: string;
-  linkedIn: string;
-  github: string;
-  phone: string;
-  jobTitle: string;
-  education: {
-    institution: string;
-    location: string;
-    degree: string;
-    startDate: string;
-    endDate: string;
-    results: string;
-  }[];
-}
-
-const user: User = {
-  fullName: "John Doe",
-  shortName: "John",
-  about:
-    "Hey, there 👋 I'm Benjamin, a Software developer and Data scientist with over 8+ years of experience, specialising in Java and React. Also I proficient at using tools and programming languages such as Python or SQL to manipulate and analyze data.",
-  age: 30,
-  address: "49/133 N, Thiththalapitigoda,yakkala , Gamapaha,  Sri Lanka",
-  Languages: ["English", "Sinhala"],
-  email: "kavidudharmasiri90@gmail.com",
-  linkedIn: "https://www.linkedin.com/in/kavindu-dharmasiri-90/",
-  github: "https://github.com/kavindu-dharmasiri",
-  phone: "+94 76 123 4567",
-  jobTitle: "Software Engineer",
-  education: [
-    {
-      institution: "Sri Lanka Institute of Information Technology",
-      location: "Malabe, Sri Lanka",
-      degree: "BSc in Software Engineering",
-      startDate: "2015",
-      endDate: "2019",
-      results: "3.3 Gpa",
-    },
-    {
-      institution: "Ananda College",
-      location: "Colombo, Sri Lanka",
-      degree: "Ordinary Level (O/L)",
-      startDate: "2015",
-      endDate: "2019",
-      results: "9 A's",
-    },
-    {
-      institution: "Ananda College",
-      location: "Colombo, Sri Lanka",
-      degree: "Advanced Level (A/L)",
-      startDate: "2015",
-      endDate: "2019",
-      results: "2 C's 1 S",
-    },
-  ],
-};
+import type { Cert, Project, Skill, Technology, User } from "./types";
+import AllProjectsCardsPage from "./pages/projects/allProjectsPage";
+import SingleProject from "./pages/projects/singleProjectPage";
+import AllCertificatePage from "./pages/cert/allCertficatesPage";
+import SingleCertificatePage from "./pages/cert/singleCertificatePage";
+import ContactPage from "./pages/contact";
+import { useEffect, useState } from "react";
+import frontendAxios from "./baseUrl";
+import Loading from "./components/loading";
 
 function App() {
+  const [user, setUser] = useState<User | null>(null);
+  const [skills, setSkills] = useState<Skill[]>([]);
+  const [technologyList, setTechnologyList] = useState<Technology[]>([]);
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [certificates, setCertificates] = useState<Cert[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const userResponse = await frontendAxios.get<User>("/api/user");
+        setUser(userResponse.data);
+        const skillsResponse = await frontendAxios.get<Skill[]>("/api/skill");
+        setSkills(skillsResponse.data);
+        const technologyResponse =
+          await frontendAxios.get<Technology[]>("/api/technology");
+        setTechnologyList(technologyResponse.data);
+        const projectsResponse =
+          await frontendAxios.get<Project[]>("/api/project");
+        setProjects(projectsResponse.data);
+        const certificatesResponse =
+          await frontendAxios.get<Cert[]>("/api/certificate");
+        setCertificates(certificatesResponse.data);
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  console.log("skills", skills);
+
+  if (
+    !user ||
+    skills.length === 0 ||
+    technologyList.length === 0 ||
+    projects.length === 0 ||
+    certificates.length === 0
+  ) {
+    return <Loading />;
+  }
   return (
     <div
       className="flex justify-center items-center  lg:h-screen bg-gradient-to-br
@@ -87,8 +73,39 @@ function App() {
       <div className="2xl:w-[1000px] xl:w-[800px] lg:w-[600px] w-full  lg:h-[650px] lg:overflow-y-scroll lg:px-0 px-[20px]">
         <div className="w-full h-full">
           <Routes>
-            <Route path="/" element={<About {...user} />} />
-            <Route path="/resume" element={<Resume {...user} />} />
+            <Route path="/" element={<About user={user} skills={skills} />} />
+            <Route
+              path="/resume"
+              element={
+                <Resume
+                  user={user}
+                  skills={skills}
+                  technologyList={technologyList}
+                />
+              }
+            />
+            <Route
+              path="/projects"
+              element={<AllProjectsCardsPage projects={projects} />}
+            />
+            <Route
+              path="/projects/:projectID"
+              element={
+                <SingleProject
+                  projects={projects}
+                  technologyList={technologyList}
+                />
+              }
+            />
+            <Route
+              path="/certificates"
+              element={<AllCertificatePage certificates={certificates} />}
+            />
+            <Route
+              path="/certificates/:certificateID"
+              element={<SingleCertificatePage certificates={certificates} />}
+            />
+            <Route path="/contact" element={<ContactPage user={user} />} />
           </Routes>
         </div>
       </div>

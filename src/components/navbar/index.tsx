@@ -5,7 +5,7 @@ import { GrWorkshop } from "react-icons/gr";
 import { BsEnvelopePaper } from "react-icons/bs";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { FaRegMoon } from "react-icons/fa";
-import { LuNotebookText } from "react-icons/lu";
+import { GrCertificate } from "react-icons/gr";
 
 function Navbar() {
   interface NavItem {
@@ -31,14 +31,14 @@ function Navbar() {
       icon: <GrWorkshop className="text-[15px]" />,
     },
     {
+      path: "/certificates",
+      displayName: "Certs",
+      icon: <GrCertificate className="text-[16px]" />,
+    },
+    {
       path: "/contact",
       displayName: "CONTACT",
       icon: <BsEnvelopePaper className="text-[15px]" />,
-    },
-    {
-      path: "/blog",
-      displayName: "BLOG",
-      icon: <LuNotebookText className="text-[15px]" />,
     },
   ];
   return (
