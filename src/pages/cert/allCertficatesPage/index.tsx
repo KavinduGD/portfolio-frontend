@@ -26,7 +26,7 @@ function AllCertificatePage({ certificates }: { certificates: Cert[] }) {
                   <img
                     src={certificate.imageUrl}
                     alt=""
-                    className="transform transition-transform duration-300 ease-in-out group-hover:scale-110 h-[300px]"
+                    className="transform transition-transform duration-300 ease-in-out group-hover:scale-110 h-[300px] w-full object-cover "
                   />
                 </div>
 
