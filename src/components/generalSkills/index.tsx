@@ -14,7 +14,7 @@ function GeneralSkills({ skills }: { skills: Skill[] }) {
               <div className="w-[60px] h-[60px] rounded-full bg-blue-100 flex items-center justify-center">
                 <img
                   src={skill.imageUrl}
-                  className="w-[50px]"
+                  className="w-full h-full object-contain p-[8px]"
                   alt="skill image"
                 />
               </div>
