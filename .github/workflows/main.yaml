@@ -3,7 +3,7 @@ name: backend workflow
 concurrency:
   group: terraformportfolio-frontend-${{ github.ref }}
   cancel-in-progress: false
-  
+
 on:
   pull_request:
     branches:
@@ -16,6 +16,11 @@ env:
   DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
   STAGE_BASE_URL: ${{ vars.STAGE_BASE_URL}}
   PROD_BASE_URL: ${{ vars.PROD_BASE_URL}}
+  VITE_GOOGLE_API_KEY: ${{ secrets.VITE_GOOGLE_API_KEY }}
+  VITE_EMAILJS_SERVICE_ID: ${{ secrets.VITE_EMAILJS_SERVICE_ID }}
+  VITE_EMAILJS_TEMPLATE_ID: ${{ secrets.VITE_EMAILJS_TEMPLATE_ID }}
+  VITE_EMAILJS_PUBLIC_KEY: ${{ secrets.VITE_EMAILJS_PUBLIC_KEY }}
+
 jobs:
   build_and_test:
     # closed event triggered by merged PRs only
@@ -79,6 +84,10 @@ jobs:
 
           docker build \
             --build-arg VITE_BASE_URL=${VITE_BASE_URL} \
+            --build-arg VITE_GOOGLE_API_KEY=${VITE_GOOGLE_API_KEY} \
+            --build-arg VITE_EMAILJS_SERVICE_ID=${VITE_EMAILJS_SERVICE_ID} \
+            --build-arg VITE_EMAILJS_TEMPLATE_ID=${VITE_EMAILJS_TEMPLATE_ID} \
+            --build-arg VITE_EMAILJS_PUBLIC_KEY=${VITE_EMAILJS_PUBLIC_KEY} \
             -t $IMAGE_NAME .
 
           docker push $IMAGE_NAME
