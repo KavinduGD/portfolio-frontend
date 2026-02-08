@@ -4,7 +4,7 @@ import ProfileContainer from "./components/profileContainer";
 import About from "./pages/about";
 import Resume from "./pages/resume";
 import backgroundImage from "./assets/background.jpg";
-import type { ICert, Project, Skill, Technology, User } from "./types";
+import type { Cert, Project, Skill, Technology, User } from "./types";
 import AllProjectsCardsPage from "./pages/projects/allProjectsPage";
 import SingleProject from "./pages/projects/singleProjectPage";
 import AllCertificatePage from "./pages/cert/allCertficatesPage";
@@ -19,7 +19,7 @@ function App() {
   const [skills, setSkills] = useState<Skill[]>([]);
   const [technologyList, setTechnologyList] = useState<Technology[]>([]);
   const [projects, setProjects] = useState<Project[]>([]);
-  const [certificates, setCertificates] = useState<ICert[]>([]);
+  const [certificates, setCertificates] = useState<Cert[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -35,7 +35,7 @@ function App() {
           await frontendAxios.get<Project[]>("/api/project");
         setProjects(projectsResponse.data);
         const certificatesResponse =
-          await frontendAxios.get<ICert[]>("/api/certificate");
+          await frontendAxios.get<Cert[]>("/api/certificate");
         setCertificates(certificatesResponse.data);
       } catch (error) {
         console.error("Error fetching user data:", error);
@@ -46,7 +46,13 @@ function App() {
 
   console.log("skills", skills);
 
-  if (!user || skills.length === 0) {
+  if (
+    !user ||
+    skills.length === 0 ||
+    technologyList.length === 0 ||
+    projects.length === 0 ||
+    certificates.length === 0
+  ) {
     return <Loading />;
   }
   return (
