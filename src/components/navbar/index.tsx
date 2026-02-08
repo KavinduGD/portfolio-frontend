@@ -5,7 +5,6 @@ import { GrWorkshop } from "react-icons/gr";
 import { BsEnvelopePaper } from "react-icons/bs";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { FaRegMoon } from "react-icons/fa";
-import { LuNotebookText } from "react-icons/lu";
 import { GrCertificate } from "react-icons/gr";
 
 function Navbar() {
