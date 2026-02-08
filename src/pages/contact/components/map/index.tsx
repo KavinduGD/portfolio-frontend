@@ -6,8 +6,8 @@ function Map() {
     height: "300px",
   };
   const defaultCenter = {
-    lat: 6.9271,
-    lng: 79.8612,
+    lat: 7.111320987207769,
+    lng: 80.03861755092447,
   };
 
   const { isLoaded } = useLoadScript({
