@@ -1,6 +1,5 @@
 import type { Skill } from "../../types";
 import ContentDivider from "../contentDivider";
-import skillImage from "./skillImage.png";
 
 function GeneralSkills({ skills }: { skills: Skill[] }) {
   return (
@@ -13,7 +12,11 @@ function GeneralSkills({ skills }: { skills: Skill[] }) {
           >
             <div className="bg-gray-100/10 px-[20px] py-[10px] rounded-lg shadow-2xs border-[1px] border-gray-100 flex flex-col items-center sm:items-start">
               <div className="w-[60px] h-[60px] rounded-full bg-blue-100 flex items-center justify-center">
-                <img src={skillImage} className="w-[50px]" alt="skill image" />
+                <img
+                  src={skill.imageUrl}
+                  className="w-[50px]"
+                  alt="skill image"
+                />
               </div>
               <p className="text-[17px] text-[#222] font-bold mt-[10px]">
                 {skill.skill}
