@@ -1,6 +1,8 @@
+import { useState } from "react";
+import { useParams } from "react-router-dom";
+
 import ContentDivider from "../../../components/contentDivider";
 import type { Project, Technology } from "../../../types";
-import { useParams } from "react-router-dom";
 
 function SingleProject({
   projects,
@@ -9,9 +11,14 @@ function SingleProject({
   projects: Project[];
   technologyList: Technology[];
 }) {
+  // Get projectID from URL
   const { projectID } = useParams<{ projectID: string }>();
 
+  // Find the project by ID
   const project = projects.find((p) => p.projectID === projectID);
+
+  // State for fullscreen image preview
+  const [previewImage, setPreviewImage] = useState<string | null>(null);
 
   if (!project) {
     return <div>Project not found</div>;
@@ -21,10 +28,12 @@ function SingleProject({
     <div className="bg-[#FEFEFE] min-h-full">
       <ContentDivider title={project.projectName} style="block">
         <div className="px-[20px] pt-[20px]">
+          {/* project images */}
           <div className="flex gap-[10px]">
             {project.projectImageUrls.map((url) => {
               return (
                 <img
+                  key={url}
                   src={url}
                   alt="project image"
                   className="w-1/2 object-cover"
@@ -32,13 +41,16 @@ function SingleProject({
               );
             })}
           </div>
+
           {/* links */}
           <div className="flex gap-x-[30px] gap-y-[10px] mt-[20px] flex-wrap">
             {project.links.map((link) => {
               return (
                 <a
+                  key={link.link}
                   href={link.link}
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="text-[14px] bg-[#0494FA] text-[#fefefe] px-[6px] py-[1px] rounded-[6px] hover:text-blue-700"
                 >
                   {link.linkName}
@@ -58,15 +70,18 @@ function SingleProject({
             {project.projectDescription}
           </p>
 
-          {/* technology */}
+          {/* technologies */}
           <div className="flex gap-x-[30px] gap-y-[10px] mt-[30px] flex-wrap">
             {project.technologies.map((technologyId) => {
               const technology = technologyList.find(
                 (tech) => tech.technologyID === technologyId,
               );
+
               if (!technology) return null;
+
               return (
                 <img
+                  key={technology.technologyID}
                   src={technology.imageUrl}
                   alt={`technology image of ${technology.technology}`}
                   className="w-[50px]"
@@ -75,16 +90,18 @@ function SingleProject({
             })}
           </div>
 
-          {/* architecture */}
-          <div className="grid grid-cols-1  sm:grid-cols-2 mt-[30px] gap-x-[10px] gap-y-[10px]">
+          {/* architecture images */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 mt-[30px] gap-x-[10px] gap-y-[10px]">
             {project.architectureImageUrls.map((url) => {
               return (
-                <div>
+                <div key={url.link}>
                   <p className="text-[#444] font-bold">{url.diagramName}</p>
+
                   <img
                     src={url.link}
                     alt="architecture diagram cover"
-                    className="object-cover1 rounded-lg"
+                    className="rounded-lg cursor-pointer hover:opacity-90"
+                    onClick={() => setPreviewImage(url.link)}
                   />
                 </div>
               );
@@ -100,7 +117,10 @@ function SingleProject({
           <div className="flex gap-x-[30px] mt-[10px] flex-wrap gap-y-[10px]">
             {project.tags.map((tag) => {
               return (
-                <p className="text-[#0494FA] border-[1px] border-[#0494FA] px-[4px] text-[13px] bg-[#e7f6ff]">
+                <p
+                  key={tag}
+                  className="text-[#0494FA] border-[1px] border-[#0494FA] px-[4px] text-[13px] bg-[#e7f6ff]"
+                >
                   {tag}
                 </p>
               );
@@ -108,6 +128,21 @@ function SingleProject({
           </div>
         </div>
       </ContentDivider>
+
+      {/* FULLSCREEN IMAGE PREVIEW */}
+      {previewImage && (
+        <div
+          className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center"
+          onClick={() => setPreviewImage(null)}
+        >
+          <img
+            src={previewImage}
+            alt="architecture preview"
+            className="max-w-[90%] max-h-[90%] rounded-lg shadow-lg"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </div>
   );
 }
