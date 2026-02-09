@@ -84,7 +84,7 @@ function SingleProject({
                   <img
                     src={url.link}
                     alt="architecture diagram cover"
-                    className="object-cover1 rounded-lg sm:h-[300px]"
+                    className="object-cover1 rounded-lg"
                   />
                 </div>
               );
