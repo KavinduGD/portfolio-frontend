@@ -38,9 +38,11 @@ The system uses a microservices architecture orchestrated by Kubernetes. Key arc
 *(Placeholder for Architecture Diagram - Please add your `architecture-diagram.png` here)*
 > The architecture diagram illustrates the flow from code commit to deployment, highlighting the interaction between GitHub Actions, Docker Hub, the Manifest Repository, Argo CD, and the EKS Cluster.
 
-### Kubernetes Manifest Architecture
-*(Placeholder for K8s Diagram - Please add your `k8s-diagram.png` here)*
-> This diagram details the Kubernetes resources, including Deployments, Services, Ingress, and Horizontal Pod Autoscalers.
+### Cluster Architecture
+![Cluster Architecture](assets/cluster-setup.png)
+
+### System Workflow
+![System Architecture](assets/architecture-diagram.png)
 
 ## 🛠️ Technology Stack
 
