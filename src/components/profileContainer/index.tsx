@@ -22,7 +22,7 @@ function ProfileContainer() {
         <h2 className="xl:text-[26px] lg:text-[18px] sm:text-[30px] text-[24px] font-bold">
           Kavindu Gihan Dharmasiri
         </h2>
-        <p className="text-blue-600 text-[18px]">Software Engineer</p>
+        <p className="text-blue-600 text-[18px]">Devops Engineer</p>
       </div>
       <div className="flex text-[24px] mt-[20px] text-[#323232] gap-[10px]">
         <a
@@ -64,7 +64,7 @@ function ProfileContainer() {
           <FaDownload />
         </a>
         <a
-          href="tel:+94771234567"
+          href="tel:+94703889630"
           className="flex  items-center gap-[10px] w-full py-[20px] justify-center  hover:bg-gray-100 transition text-[#323232]"
         >
           <p className="">CONTACT ME</p>
