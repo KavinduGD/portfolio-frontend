@@ -1,6 +1,6 @@
 import { FaGithub } from "react-icons/fa";
 import { IoLogoLinkedin } from "react-icons/io";
-import { FaFacebook } from "react-icons/fa";
+import { FaMedium } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaDownload } from "react-icons/fa";
 import { IoCall } from "react-icons/io5";
@@ -38,10 +38,10 @@ function ProfileContainer() {
           <IoLogoLinkedin className="text-[27px]" />
         </a>
         <a
-          href="https://www.facebook.com/"
+          href="https://medium.com/@kavidudharmasiri90"
           className="hover:text-black transition"
         >
-          <FaFacebook />
+          <FaMedium />
         </a>
         <a href="https://twitte.com/" className="hover:text-black transition">
           <FaSquareXTwitter />
