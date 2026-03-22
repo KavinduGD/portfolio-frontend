@@ -13,8 +13,10 @@ import ContactPage from "./pages/contact";
 import { useEffect, useState } from "react";
 import frontendAxios from "./baseUrl";
 import Loading from "./components/loading";
+import { useTheme } from "./context/ThemeContext";
 
 function App() {
+  const { theme } = useTheme();
   const [user, setUser] = useState<User | null>(null);
   const [skills, setSkills] = useState<Skill[]>([]);
   const [technologyList, setTechnologyList] = useState<Technology[]>([]);
@@ -57,13 +59,13 @@ function App() {
   }
   return (
     <div
-      className="flex justify-center items-center  lg:h-screen bg-gradient-to-br
-      font-play
-      bg-cover bg-center bg-no-repeat
-      md:flex lg:flex-row flex-col
-      "
+      className="flex justify-center items-center lg:h-screen bg-gradient-to-br
+      font-play bg-cover bg-center bg-no-repeat
+      md:flex lg:flex-row flex-col dark:bg-slate-900"
       style={{
-        backgroundImage: `url(${backgroundImage})`,
+        backgroundImage: theme === 'dark' 
+          ? `linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url(${backgroundImage})`
+          : `url(${backgroundImage})`,
       }}
     >
       <div className="flex items-center lg:flex-row flex-col lg:w-auto w-full lg:px-0 px-[20px] lg:py-0 py-[10px] xl:gap-[10px] lg:gap-[5px]  gap-[20px]">

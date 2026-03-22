@@ -13,7 +13,7 @@ function Resume({
   technologyList: Technology[];
 }) {
   return (
-    <div className="bg-[#FEFEFE]">
+    <div className="bg-[#FEFEFE] dark:bg-slate-800">
       <Education {...user} />
       <GeneralSkills skills={skills} />
       <Technologies technologyList={technologyList} />

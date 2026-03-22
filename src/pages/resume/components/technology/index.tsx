@@ -45,7 +45,7 @@ function Technologies({ technologyList }: { technologyList: Technology[] }) {
         (technologyListForaType) => {
           return (
             <div className="px-[20px] pt-[20px]">
-              <span className="text-[15px] font-bold1 text-[#222] text-white bg-[#0494fa] px-[10px] py-[3px] rounded-md">
+              <span className="text-[15px] font-bold1 text-white bg-[#0494fa] dark:bg-blue-600 px-[10px] py-[3px] rounded-md">
                 {technologyListForaType.type}
               </span>
               <div className="gap-[20px] grid 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 mt-[10px]">

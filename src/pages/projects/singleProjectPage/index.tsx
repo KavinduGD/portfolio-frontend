@@ -25,7 +25,7 @@ function SingleProject({
   }
 
   return (
-    <div className="bg-[#FEFEFE] min-h-full">
+    <div className="bg-[#FEFEFE] dark:bg-slate-800 min-h-full">
       <ContentDivider title={project.projectName} style="block">
         <div className="px-[20px] pt-[20px]">
           {/* project images */}
@@ -61,12 +61,12 @@ function SingleProject({
 
           {/* created date */}
           <div className="flex gap-[10px] mt-[20px] items-start">
-            <p className="text-[#999] text-[14px]">Created Date - </p>
-            <p className="text-gray-500 text-[14px]">{project.startedDate}</p>
+            <p className="text-[#999] dark:text-gray-400 text-[14px]">Created Date - </p>
+            <p className="text-gray-500 dark:text-gray-400 text-[14px]">{project.startedDate}</p>
           </div>
 
           {/* description */}
-          <p className="mt-[5px] leading-7 text-[#7a7a7a] text-[17px]">
+          <p className="mt-[5px] leading-7 text-[#7a7a7a] dark:text-gray-300 text-[17px]">
             {project.projectDescription}
           </p>
 
@@ -95,7 +95,7 @@ function SingleProject({
             {project.architectureImageUrls.map((url) => {
               return (
                 <div key={url.link}>
-                  <p className="text-[#444] font-bold">{url.diagramName}</p>
+                  <p className="text-[#444] dark:text-gray-200 font-bold">{url.diagramName}</p>
 
                   <img
                     src={url.link}
@@ -109,7 +109,7 @@ function SingleProject({
           </div>
 
           {/* architecture description */}
-          <p className="mt-[20px] leading-7 text-[#7a7a7a] text-[17px]">
+          <p className="mt-[20px] leading-7 text-[#7a7a7a] dark:text-gray-300 text-[17px]">
             {project.architectureDescription}
           </p>
 
@@ -117,10 +117,10 @@ function SingleProject({
           <div className="flex gap-x-[30px] mt-[10px] flex-wrap gap-y-[10px]">
             {project.tags.map((tag) => {
               return (
-                <p
-                  key={tag}
-                  className="text-[#0494FA] border-[1px] border-[#0494FA] px-[4px] text-[13px] bg-[#e7f6ff]"
-                >
+                  <p
+                    key={tag}
+                    className="text-[#0494FA] dark:text-blue-300 border-[1px] border-[#0494FA] dark:border-blue-300 px-[4px] text-[13px] bg-[#e7f6ff] dark:bg-blue-900/40"
+                  >
                   {tag}
                 </p>
               );
