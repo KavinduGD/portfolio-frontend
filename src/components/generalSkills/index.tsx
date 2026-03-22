@@ -7,21 +7,21 @@ function GeneralSkills({ skills }: { skills: Skill[] }) {
       {skills.map((skill) => {
         return (
           <div
-            className="pt-[20px] px-[20px] pb-[20px] border-gray-100 odd:border-r-[1px] border-b-[1px]"
+            className="pt-[20px] px-[20px] pb-[20px] border-gray-100 dark:border-gray-700 odd:border-r-[1px] border-b-[1px]"
             key={skill.skillID}
           >
-            <div className="bg-gray-100/10 px-[20px] py-[10px] rounded-lg shadow-2xs border-[1px] border-gray-100 flex flex-col items-center sm:items-start">
-              <div className="w-[60px] h-[60px] rounded-full bg-blue-100 flex items-center justify-center">
+            <div className="bg-gray-100/10 dark:bg-slate-700/50 px-[20px] py-[10px] rounded-lg shadow-2xs border-[1px] border-gray-100 dark:border-gray-600 flex flex-col items-center sm:items-start">
+              <div className="w-[60px] h-[60px] rounded-full bg-blue-100 dark:bg-slate-600 flex items-center justify-center">
                 <img
                   src={skill.imageUrl}
-                  className="w-full h-full object-contain p-[8px]"
+                  className="w-full h-full object-contain p-[8px] dark:drop-shadow-md"
                   alt="skill image"
                 />
               </div>
-              <p className="text-[17px] text-[#222] font-bold mt-[10px]">
+              <p className="text-[17px] text-[#222] dark:text-gray-100 font-bold mt-[10px]">
                 {skill.skill}
               </p>
-              <p className="text-[17px] text-[#444444] mt-[10px] text-center sm:text-left">
+              <p className="text-[17px] text-[#444444] dark:text-gray-300 mt-[10px] text-center sm:text-left">
                 {skill.description}
               </p>
             </div>

@@ -6,7 +6,7 @@ function TechnologyCard(technology: Technology) {
   const circumference = 2 * Math.PI * radius;
   const offset = circumference * (1 - technology.level / 100);
   return (
-    <div className="px-[20px] py-[10px] rounded-3xl flex flex-col items-center bg-gray-300/10 sm:w-[180px] border-[1px] border-gray-200">
+    <div className="px-[20px] py-[10px] rounded-3xl flex flex-col items-center bg-gray-300/10 dark:bg-slate-700/50 sm:w-[180px] border-[1px] border-gray-200 dark:border-slate-600">
       {/* Circle container */}
       <div className="relative md1:w-[120px] md1:h-[120px] sm:w-[150px] sm:h-[150px] w-[100px] h-[100px] bg-red-3001">
         {/* SVG Progress Ring */}
@@ -16,7 +16,7 @@ function TechnologyCard(technology: Technology) {
             cx={isMobile ? 50 : 75}
             cy={isMobile ? 50 : 75}
             r={radius}
-            stroke="#e5e7eb"
+            className="stroke-gray-200 dark:stroke-slate-600"
             strokeWidth={isMobile ? 4 : 6}
             fill="transparent"
           />
@@ -42,14 +42,14 @@ function TechnologyCard(technology: Technology) {
             alt=""
             className="w-[40px] sm:w-[50px]"
           />
-          <p className="text-sm font-semibold text-[#323232]">
+          <p className="text-sm font-semibold text-[#323232] dark:text-gray-200">
             {technology.level}%
           </p>
         </div>
       </div>
 
       {/* Technology name */}
-      <p className="sm:text-[17px] text-[14px] text-[#444]">
+      <p className="sm:text-[17px] text-[14px] text-[#444] dark:text-gray-300">
         {technology.technology}
       </p>
     </div>

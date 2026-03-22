@@ -53,7 +53,7 @@ function ContactForm() {
 
   return (
     <div className="pt-[30px] px-[20px]">
-      <p className="text-[#222222] font-bold text-[21px]   ">Contact Form</p>
+      <p className="text-[#222222] dark:text-gray-200 font-bold text-[21px]   ">Contact Form</p>
       <form onSubmit={handleSubmit} className="space-y-4 mt-[10px] ">
         <input
           name="name"
@@ -61,7 +61,7 @@ function ContactForm() {
           value={formData.name}
           onChange={handleChange}
           required
-          className="w-full border p-2 focus:outline-none border-[1px] border-gray-200 "
+          className="w-full border p-2 focus:outline-none border-[1px] border-gray-200 dark:border-slate-600 bg-transparent dark:bg-slate-700/50 dark:text-gray-200"
         />
 
         <input
@@ -71,7 +71,7 @@ function ContactForm() {
           value={formData.email}
           onChange={handleChange}
           required
-          className="w-full border p-2 focus:outline-none border-[1px] border-gray-200  focus:outline-none "
+          className="w-full border p-2 focus:outline-none border-[1px] border-gray-200 focus:outline-none dark:border-slate-600 bg-transparent dark:bg-slate-700/50 dark:text-gray-200"
         />
 
         <textarea
@@ -80,13 +80,13 @@ function ContactForm() {
           value={formData.message}
           onChange={handleChange}
           required
-          className="w-full border p-2 h-32 focus:outline-none border-[1px] border-gray-200 "
+          className="w-full border p-2 h-32 focus:outline-none border-[1px] border-gray-200 dark:border-slate-600 bg-transparent dark:bg-slate-700/50 dark:text-gray-200"
         />
         {success && <p className="text-green-600">{success}</p>}
         <button
           type="submit"
           disabled={loading}
-          className="bg-[#0494FA] text-white px-4 py-2 rounded"
+          className="bg-[#0494FA] dark:bg-blue-600 text-white px-4 py-2 rounded"
         >
           {loading ? "Sending..." : "Send Message"}
         </button>

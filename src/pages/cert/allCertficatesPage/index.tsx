@@ -8,7 +8,7 @@ function AllCertificatePage({ certificates }: { certificates: Cert[] }) {
   // sort certificates by score in descending order
   certificates.sort((a, b) => b.score - a.score);
   return (
-    <div className="bg-[#FEFEFE] min-h-full">
+    <div className="bg-[#FEFEFE] dark:bg-slate-800 min-h-full">
       <ContentDivider title="Certificates">
         {certificates.map((certificate) => {
           return (
@@ -16,8 +16,8 @@ function AllCertificatePage({ certificates }: { certificates: Cert[] }) {
               className="xl:px-[20px] xl:py-[20px] px-[5px] py-[5px] border-gray-100 odd:border-r-[1px] border-b-[1px] "
               key={certificate.certificateID}
             >
-              <div
-                className="group bg-gray-100/10 px-[20px] py-[10px] rounded-lg shadow-2xs border-[1px] border-gray-100 overflow-hidden cursor-pointe"
+                <div
+                  className="group bg-gray-100/10 dark:bg-slate-700/50 px-[20px] py-[10px] rounded-lg shadow-2xs border-[1px] border-gray-100 dark:border-gray-600 overflow-hidden cursor-pointe"
                 onClick={() => {
                   navigate(`/certificates/${certificate.certificateID}`);
                 }}
@@ -31,10 +31,10 @@ function AllCertificatePage({ certificates }: { certificates: Cert[] }) {
                 </div>
 
                 <div className="flex justify-between mt-[10px]">
-                  <p className="text-[17px] text-gray-700 font-bold group-hover:text-blue-600 ">
+                  <p className="text-[17px] text-gray-700 dark:text-gray-200 font-bold group-hover:text-blue-600 dark:group-hover:text-blue-400">
                     {certificate.name}
                   </p>
-                  <FaArrowUpRightFromSquare className="text-gray-700  group-hover:text-blue-600" />
+                  <FaArrowUpRightFromSquare className="text-gray-700 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-400" />
                 </div>
               </div>
             </div>

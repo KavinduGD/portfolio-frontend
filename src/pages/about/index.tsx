@@ -5,7 +5,7 @@ import AboutTop from "./components/AboutTop";
 
 function About({ user, skills }: { user: User; skills: Skill[] }) {
   return (
-    <div className="bg-[#FEFEFE]">
+    <div className="bg-[#FEFEFE] dark:bg-slate-800">
       <AboutTop {...user} />
       <GeneralSkills skills={skills} />
       <Education {...user} />
