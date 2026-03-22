@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { FaRegUser } from "react-icons/fa";
 import { FaRegRectangleList } from "react-icons/fa6";
@@ -8,6 +9,8 @@ import { FaRegMoon } from "react-icons/fa";
 import { GrCertificate } from "react-icons/gr";
 
 function Navbar() {
+  const [isOpen, setIsOpen] = useState(true);
+
   interface NavItem {
     path: string;
     displayName: string;
@@ -44,10 +47,13 @@ function Navbar() {
   return (
     <div className=" flex  lg:flex-col  flex:row gap-[10px] lg:w-auto w-full">
       <div className="hidden  lg:flex lg:flex-col flex-row items-center bg-white gap-[20px] py-[20px] rounded-[4px]">
-        <RxHamburgerMenu className="text-[20px]" />
-        <FaRegMoon className="text-[20px]" />
+        <RxHamburgerMenu 
+          className="text-[20px] cursor-pointer" 
+          onClick={() => setIsOpen(!isOpen)}
+        />
+        <FaRegMoon className="text-[20px] cursor-pointer" />
       </div>
-      <div className="bg-white  flex lg:flex-col flex-row items-center lg:gap-[20px] justify-around w-full  lg:px-[10px] lg:py-[40px] rounded-[4px]">
+      <div className="bg-white flex lg:flex-col flex-row items-center lg:gap-[20px] justify-around w-full lg:px-[10px] lg:py-[40px] rounded-[4px] transition-all duration-300">
         {navList.map((listItem) => (
           <NavLink
             key={listItem.path}
@@ -60,7 +66,7 @@ function Navbar() {
           >
             <div className="flex flex-col gap-[10px] items-center lg:py-0 py-[10px]">
               {listItem.icon}
-              <p className="text-[14px]">{listItem.displayName}</p>
+              <p className={`text-[14px] transition-all duration-300 ${!isOpen ? 'lg:hidden' : 'block'}`}>{listItem.displayName}</p>
             </div>
           </NavLink>
         ))}
