@@ -17,7 +17,7 @@ function SingleCertificatePage({ certificates }: { certificates: Cert[] }) {
   }
 
   return (
-    <div className="bg-[#FEFEFE] min-h-full">
+    <div className="bg-[#FEFEFE] dark:bg-slate-800 min-h-full">
       <ContentDivider
         title={certificate.name}
         style="flex xl:flex-row flex-col xl:gap-[10px] xl:px-[5px] sm:px-[20px] px-[10px]"
@@ -40,23 +40,23 @@ function SingleCertificatePage({ certificates }: { certificates: Cert[] }) {
           </a>
 
           <div className="flex gap-[10px] items-start text-[13px] mt-[10px]">
-            <p className="text-[#999]">Issuer:</p>
-            <p className="text-gray-500">{certificate.issuer}</p>
+            <p className="text-[#999] dark:text-gray-400">Issuer:</p>
+            <p className="text-gray-500 dark:text-gray-300">{certificate.issuer}</p>
           </div>
           <div className="flex gap-[10px] items-start text-[13px]">
-            <p className="text-[#999]">Issue Date:</p>
-            <p className="text-gray-500">{certificate.issueDate}</p>
+            <p className="text-[#999] dark:text-gray-400">Issue Date:</p>
+            <p className="text-gray-500 dark:text-gray-300">{certificate.issueDate}</p>
           </div>
           <div className="flex gap-[10px] items-start text-[13px]">
-            <p className="text-[#999]">Credentials ID:</p>
-            <p className="text-gray-500 text-[12px]">
+            <p className="text-[#999] dark:text-gray-400">Credentials ID:</p>
+            <p className="text-gray-500 dark:text-gray-300 text-[12px]">
               {certificate.credentialsId}
             </p>
           </div>
           <div className="flex gap-x-[20px] mt-[10px] flex-wrap gap-y-[10px]">
             {certificate.tags.map((tag) => {
               return (
-                <p className="text-[#0494FA] border-[1px] border-[#0494FA] px-[4px] text-[13px] bg-[#e7f6ff]">
+                <p className="text-[#0494FA] dark:text-blue-300 border-[1px] border-[#0494FA] dark:border-blue-300 px-[4px] text-[13px] bg-[#e7f6ff] dark:bg-blue-900/40">
                   {tag}
                 </p>
               );
